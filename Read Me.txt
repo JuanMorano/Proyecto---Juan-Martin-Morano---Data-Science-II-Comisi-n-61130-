@@ -1,0 +1,21 @@
+Data Science Project - Flight Delay Predictor
+Author: Juan Martin Morano
+Año: 2024
+
+PROYECT STRUCTURE
+├── Config			 # Concentra los Requirements tanto para la realización del proyecto como su puesta a producción.
+├── Data			 # Fuentes de datos
+│   ├── Raw                      # Datos crudos sin Procesar con el Dataset Objetivo
+│   ├── Extermal                 # Datos extraídos de otras fuentes (Ejemplo: Web Scrapping)
+│   ├── Processed                # Datos procesados y limpios
+├── Images                       # Imagenes específicas de visualizaciones requeridas para análisis
+├── Models                       # Modelos entrenados y cerrados para producción
+├── Notebooks                    # Notebooks desarrolladas con distintos fines
+│   ├── EDA		         # Análisis Estadítico de los Datos
+│   ├── Training                 # Entrenamiento y evaluación de modelos
+├── Reports                      # Reportes generales del proyecto
+├── Scripts                      # Funciones y otros Scripts de ayuda aplicados en el proyecto
+└── Read Me.txt                  # Archivo Read Me (con esta descripción)
+
+Contact: For any question please contact juanmorano20@hotmail.es
+License: For free use.

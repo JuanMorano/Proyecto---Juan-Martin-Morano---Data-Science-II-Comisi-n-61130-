@@ -1,0 +1,21 @@
+Proyecto de Data Science - FlightDelayPredictor
+Año: 2024
+
+PROYECT STRUCTURE
+
+├── Config/
+├── Data/
+│   ├── Raw                      # Datos crudos sin Procesar con el Dataset Objetivo
+│   ├── Extermal                 # Datos extraídos de otras fuentes (Ejemplo: Web Scrapping)
+│   ├── Processed.py             # Datos procesados y limpios
+├── Images                       # Imagenes específicas de visualizaciones requeridas para análisis
+├── Models/                      # Modelos entrenados y preparados para evaluar
+├── Notebooks                    # Notebooks desarrolladas con distintos fines
+│   ├── data_processing.py       # Procesamiento de datos
+│   ├── model.py                 # Entrenamiento y evaluación del modelo
+│   ├── model.py                 # Entrenamiento y evaluación del modelo
+│   ├── model.py                 # Entrenamiento y evaluación del modelo
+│   ├── model.py                 # Entrenamiento y evaluación del modelo
+├── Reports
+├── Read Me.md                    # Archivo README (esta descripción)
+└── requirements.txt             # Lista de dependencias

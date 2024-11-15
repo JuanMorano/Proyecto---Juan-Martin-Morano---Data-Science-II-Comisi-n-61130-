@@ -1,0 +1,20 @@
+# Función para clasificar columnas en continuas, discretas y categóricas
+def classify_columns(df):
+    # Identificar columnas numéricas y categóricas
+    categorical_columns = df.select_dtypes(include=['object']).columns
+    discrete_columns = [col for col in df.select_dtypes(include=['int']).columns if df[col].nunique() < 20]
+    continuous_columns = [col for col in df.select_dtypes(include=['float', 'int']).columns if col not in discrete_columns]
+    
+    return discrete_columns, continuous_columns, categorical_columns
+
+discrete_columns, continuous_columns, categorical_columns = classify_columns(df)
+
+if 'Unnamed: 0' in continuous_columns:
+    continuous_columns.remove('Unnamed: 0')
+
+print("Discretas:", discrete_columns)
+print("Continuas:", continuous_columns)
+print("Categóricas:", categorical_columns)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+

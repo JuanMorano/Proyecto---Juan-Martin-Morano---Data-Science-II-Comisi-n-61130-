@@ -1,0 +1,45 @@
+# Función para clasificar columnas en continuas, discretas y categóricas
+def classify_columns(df):
+    # Identificar columnas numéricas y categóricas
+    categorical_columns = df.select_dtypes(include=['object']).columns
+    discrete_columns = [col for col in df.select_dtypes(include=['int']).columns if df[col].nunique() < 20]
+    continuous_columns = [col for col in df.select_dtypes(include=['float', 'int']).columns if col not in discrete_columns]
+    
+    return discrete_columns, continuous_columns, categorical_columns
+
+discrete_columns, continuous_columns, categorical_columns = classify_columns(df)
+
+if 'Unnamed: 0' in continuous_columns:
+    continuous_columns.remove('Unnamed: 0')
+
+print("Discretas:", discrete_columns)
+print("Continuas:", continuous_columns)
+print("Categóricas:", categorical_columns)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+#Bucle For para hacer un reemplazo de los Outliers por la media u otro valor
+
+for col in continuous_columns:
+    Q1 = df[col].quantile(0.25)
+    Q3 = df[col].quantile(0.75)
+    IQR = Q3 -  Q1
+
+    lower_bound = Q1 - 1.5 * IQR 
+    upper_bound = Q3 + 1.5 * IQR
+
+    col_mean = df[col].mean()
+
+    df.loc[(df[col] < lower_bound) | (df[col] > upper_bound), col] = col_mean
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+#Bucle para crear gráficos Histplot (con superposición de barras) 
+para denotar diferencias significativas en el comportamiento de las variables
+
+for col in continuous_columns:
+    plt.figure(figsize=(10,6))
+    sns.histplot(data = df, x = col, hue = df['DEP_DEL15'], kde=True, stat="density", common_norm=False, fill=False)
+    plt.title(f'Histograma y densidad de la variable {col}')
+    plt.show()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
